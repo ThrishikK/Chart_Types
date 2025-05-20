@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Bill Chart</title>
+  </head>
+  <body>
+    <canvas id="lineChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("lineChart").getContext("2d");
+
+      const billChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          datasets: [
+            // ELECTRICITY
+            {
+              label: "Electricity",
+              data: [1700, 1500, 1800, 2300, 2500],
+              borderColor: "#780000",
+              tension: 0.3,
+              // point
+              pointRadius: 3,
+              pointBackgroundColor: "rgba(120, 0, 0, 0.2)",
+              pointBorderColor: "rgba(120, 0, 0, 0.2)",
+              pointHoverRadius: 5,
+              // line
+              borderWidth: 3,
+              borderDash: [5, 0],
+              backgroundColor: "rgba(120, 0, 0, 0.2)",
+              fill: true,
+            },
+            // CABLE
+            {
+              label: "Cable",
+              data: [400, 820, 800, 650, 900],
+              borderColor: "#003049",
+              tension: 0.3,
+              // point
+              pointRadius: 3,
+              pointBackgroundColor: "rgb(0, 48, 73,0.2)",
+              pointBorderColor: "rgb(0, 48, 73,0.2)",
+              pointHoverRadius: 5,
+              // line
+              borderWidth: 3,
+              borderDash: [5, 0],
+              backgroundColor: "rgb(0, 48, 73,0.2)",
+              fill: true,
+            },
+            // Mobile
+            {
+              label: "Mobile Recharge",
+              data: [299, 349, 349, 250, 349],
+              borderColor: "#800020",
+              tension: 0.3,
+              // point
+              pointRadius: 3,
+              pointBackgroundColor: "rgba(128, 0, 32, 0.2)",
+              pointBorderColor: "rgba(128, 0, 32, 0.2)",
+              pointHoverRadius: 5,
+              // line
+              borderWidth: 3,
+              borderDash: [5, 0],
+              backgroundColor: "rgba(128, 0, 32, 0.2)",
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: false,
+          animation: {
+            duration: 1000,
+            easing: "easeInSine",
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Months",
+                color: "#003049",
+                font: {
+                  size: 18,
+                  weight: "bold",
+                },
+              },
+              ticks: {
+                color: "#003049",
+                font: {
+                  size: 14,
+                  weight: "bold",
+                },
+              },
+              grid: {
+                color: "#ddd",
+                lineWidth: 1,
+                drawOnChartArea: true,
+                drawTicks: false,
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "Rupees",
+                color: "#669bbc",
+                font: {
+                  size: 18,
+                  weight: "bold",
+                },
+              },
+              ticks: {
+                color: "#003049",
+                font: {
+                  size: 14,
+                  weight: "bold",
+                },
+              },
+              grid: {
+                color: "#ddd",
+                lineWidth: 1,
+                drawOnChartArea: true,
+                drawTicks: false,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+              labels: {
+                color: "black",
+                font: {
+                  size: 18,
+                  family: "Arial",
+                  weight: "bold",
+                },
+                boxWidth: 40,
+                boxHeight: 10,
+                padding: 40,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
